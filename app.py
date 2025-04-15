@@ -55,7 +55,7 @@ def parse_coordinates(coord_str):
 
 
 # --- Load Excel from Local Path (instead of file uploader) ---
-local_excel_path = r"C:\Users\dell\Downloads\Active _Operational Mineral Tiles.xlsx"  # 👉 Update this path as needed
+local_excel_path = "data/Active _Operational Mineral Tiles.xlsx"  # 👉 Update this path as needed
 
 try:
     df = pd.read_excel(local_excel_path)
