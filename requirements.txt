@@ -1,0 +1,8 @@
+streamlit
+pandas
+openpyxl
+numpy
+pydeck
+streamlit-aggrid
+folium
+streamlit-folium
