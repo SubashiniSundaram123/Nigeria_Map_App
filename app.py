@@ -244,6 +244,7 @@ folium.LayerControl().add_to(m)
 st_folium(m, width=1200, height=700)
 
 # --- TABLE SECOND ---
+st.markdown("<div style='margin-top: -20px;'></div>", unsafe_allow_html=True)
 st.markdown("### 📋 Titles Table with Google Maps Links")
 st.write(filtered_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
