@@ -618,7 +618,7 @@ folium.LayerControl().add_to(m)
 st_folium(m, width=1200, height=800)
 
 # --- TABLE SECOND ---
-st.markdown("<div style='margin-top: -60px;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='margin-top: -80px;'></div>", unsafe_allow_html=True)
 # Create a layout with title and download buttons side by side
 col1, col2, col3 = st.columns([2, 1, 1])
 with col1:
@@ -647,7 +647,7 @@ with col3:
 st.write(filtered_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # --- DOWNLOAD BUTTONS ---
-st.markdown("<div style='margin-top: -60px;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='margin-top: -80px;'></div>", unsafe_allow_html=True)
 st.markdown("### 📥 Download Filtered Data")
 
 # Create a row of download buttons
