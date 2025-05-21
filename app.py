@@ -273,7 +273,7 @@ with col3:
 st.write(filtered_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # --- DOWNLOAD BUTTONS ---
-st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='margin-top: -60px;'></div>", unsafe_allow_html=True)
 st.markdown("### 📥 Download Filtered Data")
 
 # Create a row of download buttons
