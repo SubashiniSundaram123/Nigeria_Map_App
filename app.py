@@ -334,11 +334,11 @@ for _, row in filtered_df.iterrows():
 # Add layer control to toggle between marker groups
 folium.LayerControl().add_to(m)
 
-st_folium(m, width=1200, height=1000)
+st_folium(m, width=1200, height=800)
 
 # --- TABLE SECOND ---
 # Reduce spacing by using HTML with custom margin
-st.markdown("<div style='margin-top: -60px;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='margin-top: -80px;'></div>", unsafe_allow_html=True)
 
 # Create a layout with title and download buttons side by side
 col1, col2, col3 = st.columns([2, 1, 1])
@@ -367,7 +367,7 @@ with col3:
 st.write(filtered_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # Footer section - No download buttons at the bottom
-st.markdown("<div style='margin-top: -60px;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='margin-top: -80px;'></div>", unsafe_allow_html=True)
 st.markdown("---")
 st.markdown("### Nigeria Mineral Titles Explorer")
 st.markdown("Data explorer for mineral titles in Nigeria. Use the search box to filter titles by keywords.")
