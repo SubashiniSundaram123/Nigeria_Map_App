@@ -59,7 +59,7 @@ def parse_coordinates(coord_str):
 
 
 # --- Load Excel ---
-file_path = "data/Nigeria Licenced Mine Inventory.xlsx"
+file_path = "data/Nigeria Licenced Mine Inventory_new.xlsx"
 try:
     df = pd.read_excel(file_path)
     st.success("✅ Data loaded successfully.")
