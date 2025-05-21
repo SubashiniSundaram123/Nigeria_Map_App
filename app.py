@@ -241,36 +241,90 @@ for _, row in filtered_df.iterrows():
 # Add layer control to toggle between marker groups
 folium.LayerControl().add_to(m)
 
-st_folium(m, width=1200, height=700)
+st_folium(m, width=1200, height=800)
 
 # --- TABLE SECOND ---
 st.markdown("<div style='margin-top: -60px;'></div>", unsafe_allow_html=True)
-st.markdown("### 📋 Titles Table with Google Maps Links")
+# Create a layout with title and download buttons side by side
+col1, col2, col3 = st.columns([2, 1, 1])
+with col1:
+    st.markdown("### 📋 Titles Table with Google Maps Links")
+with col2:
+    # CSV button at top
+    csv_data = filtered_df.to_csv(index=False).encode("utf-8")
+    st.download_button(
+        label="⬇️ Download CSV",
+        data=csv_data,
+        file_name="filtered_titles.csv",
+        mime="text/csv"
+    )
+with col3:
+    # Excel button at top
+    excel_buffer = io.BytesIO()
+    with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
+        filtered_df.to_excel(writer, index=False, sheet_name="Titles")
+    excel_data = excel_buffer.getvalue()
+    st.download_button(
+        label="⬇️ Download Excel",
+        data=excel_data,
+        file_name="filtered_titles.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 st.write(filtered_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # --- DOWNLOAD BUTTONS ---
+st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 st.markdown("### 📥 Download Filtered Data")
 
-# CSV
-csv_data = filtered_df.to_csv(index=False).encode("utf-8")
-st.download_button(
-    label="⬇️ Download CSV",
-    data=csv_data,
-    file_name="filtered_titles.csv",
-    mime="text/csv"
-)
+# Create a row of download buttons
+col1, col2, col3 = st.columns([2, 1, 1])
+with col2:
+    # CSV
+    csv_data = filtered_df.to_csv(index=False).encode("utf-8")
+    st.download_button(
+        label="⬇️ Download CSV",
+        data=csv_data,
+        file_name="filtered_titles.csv",
+        mime="text/csv"
+    )
+with col3:
+    # Excel
+    excel_buffer = io.BytesIO()
+    with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
+        filtered_df.to_excel(writer, index=False, sheet_name="Titles")
+    excel_data = excel_buffer.getvalue()
+    st.download_button(
+        label="⬇️ Download Excel",
+        data=excel_data,
+        file_name="filtered_titles.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+# st.markdown("### 📋 Titles Table with Google Maps Links")
+# st.write(filtered_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
-# Excel
-excel_buffer = io.BytesIO()
-with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
-    filtered_df.to_excel(writer, index=False, sheet_name="Titles")
-excel_data = excel_buffer.getvalue()
-st.download_button(
-    label="⬇️ Download Excel",
-    data=excel_data,
-    file_name="filtered_titles.xlsx",
-    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-)
+# # --- DOWNLOAD BUTTONS ---
+# st.markdown("### 📥 Download Filtered Data")
+
+# # CSV
+# csv_data = filtered_df.to_csv(index=False).encode("utf-8")
+# st.download_button(
+#     label="⬇️ Download CSV",
+#     data=csv_data,
+#     file_name="filtered_titles.csv",
+#     mime="text/csv"
+# )
+
+# # Excel
+# excel_buffer = io.BytesIO()
+# with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
+#     filtered_df.to_excel(writer, index=False, sheet_name="Titles")
+# excel_data = excel_buffer.getvalue()
+# st.download_button(
+#     label="⬇️ Download Excel",
+#     data=excel_data,
+#     file_name="filtered_titles.xlsx",
+#     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+# )
 
 # import streamlit as st
 # import pandas as pd
