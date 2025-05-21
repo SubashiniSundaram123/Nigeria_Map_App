@@ -158,8 +158,8 @@ for _, row in filtered_df.iterrows():
     popup_html = "<div style='max-width:300px;'>"
 
     # Get company name/title holder for both popup and tooltip
-    # We'll first try the exact column "NAME OF COMPANY/ MINERAL TITLE HOLDER"
-    company_name = row.get('NAME OF COMPANY/ MINERAL TITLE HOLDER', '')
+    # We'll first try the exact column "NAME OF COMPANY/MINERAL TITLE HOLDER"
+    company_name = row.get('NAME OF COMPANY/MINERAL TITLE HOLDER', '')
     # Fallback to other similar columns if the specific one doesn't exist
     if not company_name:
         company_name = row.get('COMPANY NAME', '') or row.get('NAME OF COMPANY', '') or row.get('MINERAL TITLE HOLDER',
@@ -210,7 +210,7 @@ for _, row in filtered_df.iterrows():
 
     # Create tooltip with company name as primary information
     # First check specifically for "NAME OF COMPANY/ MINERAL TITLE HOLDER" column
-    tooltip = row.get("NAME OF COMPANY/ MINERAL TITLE HOLDER", "")
+    tooltip = row.get("NAME OF COMPANY/MINERAL TITLE HOLDER", "")
     # If empty, use fallback label
     if not tooltip:
         tooltip = company_name if company_name else "Unknown Company"
